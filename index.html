@@ -1,0 +1,1664 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="auto">
+
+<head>
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="William Desportes">
+    <title>Calculateur d'Ardoises - Wdes.fr</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+</head>
+
+<body>
+
+    <main class="container mt-5">
+        <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-4 fst-italic">Calculateur d'Ardoises</h1>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-9">
+
+                <article class="blog-post">
+                    <h3>Votre choix d'ardoise</h3>
+
+                    <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the
+                        other highly repetitive body text used throughout.</p>
+                    <div id="choix" class="ag-theme-quartz" style="height: 500px"></div>
+                </article>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-body-tertiary rounded">
+                        <h4 class="fst-italic">Fonctionnalités</h4>
+                        <p class="mb-0">Sur cet outil il est possible de déterminer la quantité d'ardoises ainsi que
+                            leur taille pour votre construction.</p>
+                    </div>
+
+                    <div class="p-4">
+                        <h4 class="fst-italic">Autres outils</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="https://www.ardoises-catteau.com/determiner-votre-modele-dardoise/calcul-du-nombre-dardoises/"
+                                    target="_blank">Ardoises CATTEAU - calcul du nbr d'ardoises au m²</a></li>
+                            <li><a href="https://www.ardoises-catteau.com/determiner-votre-modele-dardoise/calculer-votre-besoin-en-ardoises/"
+                                    target="_blank">Ardoises CATTEAU - calculs</a></li>
+                            <li><a href="https://www.minardoises.fr/ardoise-couverture/outil-calcul-ardoise/"
+                                    target="_blank">Min' Ardoise - Tableau calcul d'ardoises</a></li>
+                            <li><a href="https://www.cupapizarras.com/fr/centre-ressources/faqs/pureau-ardoises-au-m2/"
+                                    target="_blank">CUPAPIZARRAS - Tableau pureau et calculs - France</a></li>
+                            <li><a href="https://www.cupapizarras.com/fr/centre-ressources/faqs/calcul-recouvrement-ardoise/"
+                                    target="_blank">CUPAPIZARRAS - Tableau recouvrement et pente - France</a></li>
+                            <li><a href="https://www.cupapizarras.com/be-fr/centre-ressources/faqs/calcul-recouvrement-ardoise/"
+                                    target="_blank">CUPAPIZARRAS - Tableau recouvrement et pente - Belgique</a></li>
+                        </ol>
+                    </div>
+
+                    <div class="p-4">
+                        <h4 class="fst-italic">Chaines YouTube</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="https://www.youtube.com/@minardoise478" target="_blank">Min' Ardoise</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>Réalisé par <a href="https://williamdes.eu/" target="_blank">William Desportes</a>, code source <a
+                href="https://github.com/wdes/calculateur-ardoises/#readme" target="_blank">disponible sur GitHub</a>.
+        </p>
+        <p class="mb-0">
+            <a href="#">Retour en haut</a>
+        </p>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        const data = [
+            {
+                "Recouvrement en mm": 153,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 173.5,
+                "Nombre ardoises au m2": 22.7,
+                "Longueur du crochet en cm": 16,
+                "ml de liteaux au m2": 5.76
+            },
+            {
+                "Recouvrement en mm": 153,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 153.5,
+                "Nombre ardoises au m2": 21.4,
+                "Longueur du crochet en cm": 16,
+                "ml de liteaux au m2": 6.51
+            },
+            {
+                "Recouvrement en mm": 153,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 153.5,
+                "Nombre ardoises au m2": 25.6,
+                "Longueur du crochet en cm": 16,
+                "ml de liteaux au m2": 6.51
+            },
+            {
+                "Recouvrement en mm": 147,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 176.5,
+                "Nombre ardoises au m2": 22.3,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 5.67
+            },
+            {
+                "Recouvrement en mm": 147,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 156.5,
+                "Nombre ardoises au m2": 21,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 6.39
+            },
+            {
+                "Recouvrement en mm": 147,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 156.5,
+                "Nombre ardoises au m2": 25.1,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 6.39
+            },
+            {
+                "Recouvrement en mm": 142,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 179,
+                "Nombre ardoises au m2": 22,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 5.60
+            },
+            {
+                "Recouvrement en mm": 142,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 159,
+                "Nombre ardoises au m2": 20.6,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 6.29
+            },
+            {
+                "Recouvrement en mm": 142,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 159,
+                "Nombre ardoises au m2": 24.7,
+                "Longueur du crochet en cm": 15,
+                "ml de liteaux au m2": 6.29
+            },
+            {
+                "Recouvrement en mm": 137,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 181.5,
+                "Nombre ardoises au m2": 21.7,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 5.50
+            },
+            {
+                "Recouvrement en mm": 137,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 161.5,
+                "Nombre ardoises au m2": 20.3,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.19
+            },
+            {
+                "Recouvrement en mm": 137,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 161.5,
+                "Nombre ardoises au m2": 24.3,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.19
+            },
+            {
+                "Recouvrement en mm": 133,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 183.5,
+                "Nombre ardoises au m2": 21.4,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 5.45
+            },
+            {
+                "Recouvrement en mm": 133,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 163.5,
+                "Nombre ardoises au m2": 20.1,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.12
+            },
+            {
+                "Recouvrement en mm": 133,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 163.5,
+                "Nombre ardoises au m2": 24,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.12
+            },
+            {
+                "Recouvrement en mm": 133,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 133.5,
+                "Nombre ardoises au m2": 29.4,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 7.49
+            },
+            {
+                "Recouvrement en mm": 133,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 133.5,
+                "Nombre ardoises au m2": 233.4,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 7.50
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "50x25",
+                "Pureau (P) en mm": 185,
+                "Nombre ardoises au m2": 21.3,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 5.40
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "46x30",
+                "Pureau (P) en mm": 165,
+                "Nombre ardoises au m2": 19.9,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.06
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "46x25",
+                "Pureau (P) en mm": 165,
+                "Nombre ardoises au m2": 23.8,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 6.06
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 135,
+                "Nombre ardoises au m2": 29.1,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 7.41
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 135,
+                "Nombre ardoises au m2": 33.1,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 7.41
+            },
+            {
+                "Recouvrement en mm": 130,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 135,
+                "Nombre ardoises au m2": 36.3,
+                "Longueur du crochet en cm": 14,
+                "ml de liteaux au m2": 7.41
+            },
+            {
+                "Recouvrement en mm": 127,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 136.5,
+                "Nombre ardoises au m2": 28.8,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.33
+            },
+            {
+                "Recouvrement en mm": 127,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 136.5,
+                "Nombre ardoises au m2": 32.7,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.32
+            },
+            {
+                "Recouvrement en mm": 127,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 136.5,
+                "Nombre ardoises au m2": 35.9,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.33
+            },
+            {
+                "Recouvrement en mm": 123,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 138.5,
+                "Nombre ardoises au m2": 28.4,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.22
+            },
+            {
+                "Recouvrement en mm": 123,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 138.5,
+                "Nombre ardoises au m2": 32.2,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.22
+            },
+            {
+                "Recouvrement en mm": 123,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 138.5,
+                "Nombre ardoises au m2": 35.3,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.22
+            },
+            {
+                "Recouvrement en mm": 119,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 140.5,
+                "Nombre ardoises au m2": 28,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.12
+            },
+            {
+                "Recouvrement en mm": 119,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 140.5,
+                "Nombre ardoises au m2": 31.8,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.11
+            },
+            {
+                "Recouvrement en mm": 119,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 140.5,
+                "Nombre ardoises au m2": 34.8,
+                "Longueur du crochet en cm": 13,
+                "ml de liteaux au m2": 7.12
+            },
+            {
+                "Recouvrement en mm": 117,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 141.5,
+                "Nombre ardoises au m2": 27.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 7.08
+            },
+            {
+                "Recouvrement en mm": 117,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 141.5,
+                "Nombre ardoises au m2": 31.5,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 7.06
+            },
+            {
+                "Recouvrement en mm": 117,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 141.5,
+                "Nombre ardoises au m2": 34.6,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 7.08
+            },
+            {
+                "Recouvrement en mm": 117,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 33.9,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 117,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 38.5,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 116,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 142,
+                "Nombre ardoises au m2": 31.4,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 7.04
+            },
+            {
+                "Recouvrement en mm": 116,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 117,
+                "Nombre ardoises au m2": 33.6,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.55
+            },
+            {
+                "Recouvrement en mm": 116,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 117,
+                "Nombre ardoises au m2": 38.1,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.55
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 143.5,
+                "Nombre ardoises au m2": 27.4,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.97
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 143.5,
+                "Nombre ardoises au m2": 31.1,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.95
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 143.5,
+                "Nombre ardoises au m2": 34.1,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.97
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 33.2,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 37.6,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 113,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 41.4,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "40x25",
+                "Pureau (P) en mm": 145,
+                "Nombre ardoises au m2": 27.1,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.90
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 145,
+                "Nombre ardoises au m2": 30.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.90
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 145,
+                "Nombre ardoises au m2": 33.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 6.90
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 32.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.33
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 37.2,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.30
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 40.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 8.33
+            },
+            {
+                "Recouvrement en mm": 110,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 110,
+                "Nombre ardoises au m2": 38.8,
+                "Longueur du crochet en cm": 12,
+                "ml de liteaux au m2": 9.09
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 146.5,
+                "Nombre ardoises au m2": 30.6,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.80
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 146.5,
+                "Nombre ardoises au m2": 33.6,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.83
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 121.5,
+                "Nombre ardoises au m2": 32.5,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.23
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 121.5,
+                "Nombre ardoises au m2": 36.9,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.23
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 121.5,
+                "Nombre ardoises au m2": 40.5,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.23
+            },
+            {
+                "Recouvrement en mm": 107,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 111.5,
+                "Nombre ardoises au m2": 38.4,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.97
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 148.5,
+                "Nombre ardoises au m2": 30.2,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.73
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 148.5,
+                "Nombre ardoises au m2": 33.1,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.73
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 123.5,
+                "Nombre ardoises au m2": 32,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.10
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 123.5,
+                "Nombre ardoises au m2": 36.3,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.10
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 123.5,
+                "Nombre ardoises au m2": 39.9,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.10
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 113.5,
+                "Nombre ardoises au m2": 37.8,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.81
+            },
+            {
+                "Recouvrement en mm": 103,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 108.5,
+                "Nombre ardoises au m2": 41.3,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 9.22
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 150,
+                "Nombre ardoises au m2": 29.9,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.66
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 150,
+                "Nombre ardoises au m2": 32.8,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 6.67
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 125,
+                "Nombre ardoises au m2": 31.6,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.00
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 125,
+                "Nombre ardoises au m2": 35.9,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.00
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 125,
+                "Nombre ardoises au m2": 39.4,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.00
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 115,
+                "Nombre ardoises au m2": 37.3,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 8.70
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 110,
+                "Nombre ardoises au m2": 40.7,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 9.09
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 100,
+                "Nombre ardoises au m2": 44.8,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 10.00
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 100,
+                "Nombre ardoises au m2": 49.2,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 10.00
+            },
+            {
+                "Recouvrement en mm": 100,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 100,
+                "Nombre ardoises au m2": 54.6,
+                "Longueur du crochet en cm": 11,
+                "ml de liteaux au m2": 10.00
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 151.5,
+                "Nombre ardoises au m2": 29.6,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.60
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 151.5,
+                "Nombre ardoises au m2": 32.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.60
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 126.5,
+                "Nombre ardoises au m2": 38.9,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.90
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 126.5,
+                "Nombre ardoises au m2": 31.2,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.90
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 126.5,
+                "Nombre ardoises au m2": 35.4,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.90
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 36.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 111.5,
+                "Nombre ardoises au m2": 40.2,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.97
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 101.5,
+                "Nombre ardoises au m2": 44.1,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.85
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 101.5,
+                "Nombre ardoises au m2": 48.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.85
+            },
+            {
+                "Recouvrement en mm": 97,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 101.5,
+                "Nombre ardoises au m2": 53.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.85
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 153,
+                "Nombre ardoises au m2": 29.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.54
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 153,
+                "Nombre ardoises au m2": 32.1,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.54
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 128,
+                "Nombre ardoises au m2": 30.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.80
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 128,
+                "Nombre ardoises au m2": 35,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.80
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 128,
+                "Nombre ardoises au m2": 38.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.80
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 118,
+                "Nombre ardoises au m2": 36.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.47
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 113,
+                "Nombre ardoises au m2": 39.6,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.85
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 103,
+                "Nombre ardoises au m2": 43.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.71
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 103,
+                "Nombre ardoises au m2": 47.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.71
+            },
+            {
+                "Recouvrement en mm": 94,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 103,
+                "Nombre ardoises au m2": 53,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.71
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "40x22",
+                "Pureau (P) en mm": 154,
+                "Nombre ardoises au m2": 29.1,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.50
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "40x20",
+                "Pureau (P) en mm": 154,
+                "Nombre ardoises au m2": 31.9,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 6.49
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 129,
+                "Nombre ardoises au m2": 30.6,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.75
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 129,
+                "Nombre ardoises au m2": 34.7,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.75
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 129,
+                "Nombre ardoises au m2": 32.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.75
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 119,
+                "Nombre ardoises au m2": 36,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.40
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 114,
+                "Nombre ardoises au m2": 39.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.77
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 104,
+                "Nombre ardoises au m2": 43.1,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.62
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 104,
+                "Nombre ardoises au m2": 47.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.62
+            },
+            {
+                "Recouvrement en mm": 92,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 104,
+                "Nombre ardoises au m2": 52.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.62
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "35x25",
+                "Pureau (P) en mm": 130.5,
+                "Nombre ardoises au m2": 30.2,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.66
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "35x22",
+                "Pureau (P) en mm": 130.5,
+                "Nombre ardoises au m2": 34.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.66
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 130.5,
+                "Nombre ardoises au m2": 37.7,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 7.66
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 120.5,
+                "Nombre ardoises au m2": 35.6,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.30
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 115.5,
+                "Nombre ardoises au m2": 38.8,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 8.66
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 105.5,
+                "Nombre ardoises au m2": 42.5,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.48
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 105.5,
+                "Nombre ardoises au m2": 46.6,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.48
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 105.5,
+                "Nombre ardoises au m2": 51.7,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 9.48
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 90.5,
+                "Nombre ardoises au m2": 60.3,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 11.05
+            },
+            {
+                "Recouvrement en mm": 89,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 90.5,
+                "Nombre ardoises au m2": 67.7,
+                "Longueur du crochet en cm": 10,
+                "ml de liteaux au m2": 11.05
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "35x20",
+                "Pureau (P) en mm": 131.5,
+                "Nombre ardoises au m2": 37.5,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 7.60
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "33x23",
+                "Pureau (P) en mm": 121.5,
+                "Nombre ardoises au m2": 35.3,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 8.23
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 38.4,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 106.5,
+                "Nombre ardoises au m2": 42.1,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.39
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 106.5,
+                "Nombre ardoises au m2": 46.2,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.39
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 106.5,
+                "Nombre ardoises au m2": 51.3,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.39
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 91.5,
+                "Nombre ardoises au m2": 59.7,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.93
+            },
+            {
+                "Recouvrement en mm": 87,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 91.5,
+                "Nombre ardoises au m2": 67,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.93
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 37.8,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 108.5,
+                "Nombre ardoises au m2": 41.3,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.22
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 108.5,
+                "Nombre ardoises au m2": 45.4,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.22
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 108.5,
+                "Nombre ardoises au m2": 50.3,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.22
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 93.5,
+                "Nombre ardoises au m2": 58.4,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.70
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 93.5,
+                "Nombre ardoises au m2": 65.6,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.70
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 83.5,
+                "Nombre ardoises au m2": 65.4,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 11.98
+            },
+            {
+                "Recouvrement en mm": 83,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 83.5,
+                "Nombre ardoises au m2": 78.2,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 11.98
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 37.3,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 8.33
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 110,
+                "Nombre ardoises au m2": 40.7,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.09
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 110,
+                "Nombre ardoises au m2": 44.7,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.09
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 110,
+                "Nombre ardoises au m2": 49.6,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 9.09
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 95,
+                "Nombre ardoises au m2": 57.5,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.53
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 95,
+                "Nombre ardoises au m2": 64.5,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 10.53
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 85,
+                "Nombre ardoises au m2": 64.2,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 11.76
+            },
+            {
+                "Recouvrement en mm": 80,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 85,
+                "Nombre ardoises au m2": 76.8,
+                "Longueur du crochet en cm": 9,
+                "ml de liteaux au m2": 11.76
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 121.5,
+                "Nombre ardoises au m2": 36.9,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.23
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 111.5,
+                "Nombre ardoises au m2": 40.2,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.97
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 111.5,
+                "Nombre ardoises au m2": 44.1,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.97
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 111.5,
+                "Nombre ardoises au m2": 49,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.97
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 96.5,
+                "Nombre ardoises au m2": 56.6,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 10.36
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 96.5,
+                "Nombre ardoises au m2": 63.5,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 10.36
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 86.5,
+                "Nombre ardoises au m2": 63.1,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.56
+            },
+            {
+                "Recouvrement en mm": 77,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 86.5,
+                "Nombre ardoises au m2": 75.5,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.56
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 123.5,
+                "Nombre ardoises au m2": 36.3,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.10
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 113.5,
+                "Nombre ardoises au m2": 39.5,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.81
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 113.5,
+                "Nombre ardoises au m2": 43.4,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.81
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 113.5,
+                "Nombre ardoises au m2": 48.1,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.81
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 98.5,
+                "Nombre ardoises au m2": 55.4,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 10.15
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 98.5,
+                "Nombre ardoises au m2": 62.2,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 10.15
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 88.5,
+                "Nombre ardoises au m2": 61.7,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.30
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 88.5,
+                "Nombre ardoises au m2": 73.8,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.30
+            },
+            {
+                "Recouvrement en mm": 73,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 73.5,
+                "Nombre ardoises au m2": 83.4,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 13.60
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "32x22",
+                "Pureau (P) en mm": 125.5,
+                "Nombre ardoises au m2": 35.7,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 7.97
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "30x22",
+                "Pureau (P) en mm": 115.5,
+                "Nombre ardoises au m2": 38.8,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.66
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 115.5,
+                "Nombre ardoises au m2": 42.6,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.66
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 115.5,
+                "Nombre ardoises au m2": 47.3,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 8.66
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 100.5,
+                "Nombre ardoises au m2": 54.3,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 9.95
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 100.5,
+                "Nombre ardoises au m2": 61,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 9.95
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 90.5,
+                "Nombre ardoises au m2": 60.3,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.05
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 90.5,
+                "Nombre ardoises au m2": 72.2,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 11.05
+            },
+            {
+                "Recouvrement en mm": 69,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 75.5,
+                "Nombre ardoises au m2": 81.2,
+                "Longueur du crochet en cm": 8,
+                "ml de liteaux au m2": 13.25
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 42.2,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 116.5,
+                "Nombre ardoises au m2": 46.9,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.58
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 101.5,
+                "Nombre ardoises au m2": 53.8,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.85
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 101.5,
+                "Nombre ardoises au m2": 60.4,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.85
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 91.5,
+                "Nombre ardoises au m2": 59.7,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.93
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 91.5,
+                "Nombre ardoises au m2": 71.4,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.93
+            },
+            {
+                "Recouvrement en mm": 67,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 76.5,
+                "Nombre ardoises au m2": 80.1,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 13.07
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 117.5,
+                "Nombre ardoises au m2": 41.9,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.51
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 117.5,
+                "Nombre ardoises au m2": 46.5,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.51
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 102.5,
+                "Nombre ardoises au m2": 53.3,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.77
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 102.5,
+                "Nombre ardoises au m2": 59.8,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.77
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 92.5,
+                "Nombre ardoises au m2": 59,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.81
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 92.5,
+                "Nombre ardoises au m2": 70.6,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.81
+            },
+            {
+                "Recouvrement en mm": 65,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 77.5,
+                "Nombre ardoises au m2": 79.1,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 12.90
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 41.5,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 118.5,
+                "Nombre ardoises au m2": 46.1,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.44
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 103.5,
+                "Nombre ardoises au m2": 52.7,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.66
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 103.5,
+                "Nombre ardoises au m2": 59.2,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.66
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 93.5,
+                "Nombre ardoises au m2": 58.4,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.70
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 93.5,
+                "Nombre ardoises au m2": 69.9,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.70
+            },
+            {
+                "Recouvrement en mm": 63,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 78.5,
+                "Nombre ardoises au m2": 78.1,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 12.74
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "30x20",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 41,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.33
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "30x18",
+                "Pureau (P) en mm": 120,
+                "Nombre ardoises au m2": 45.5,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 8.33
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "27x18",
+                "Pureau (P) en mm": 105,
+                "Nombre ardoises au m2": 52,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.52
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "27x16",
+                "Pureau (P) en mm": 105,
+                "Nombre ardoises au m2": 58.4,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 9.52
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "25x18",
+                "Pureau (P) en mm": 95,
+                "Nombre ardoises au m2": 57.5,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.53
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "25x15",
+                "Pureau (P) en mm": 95,
+                "Nombre ardoises au m2": 68.7,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 10.53
+            },
+            {
+                "Recouvrement en mm": 60,
+                "Modèle d’ardoise en cm": "22x16",
+                "Pureau (P) en mm": 80,
+                "Nombre ardoises au m2": 76.6,
+                "Longueur du crochet en cm": 7,
+                "ml de liteaux au m2": 12.50
+            }
+        ];
+
+        // Grid Options: Contains all of the grid configurations
+        const gridOptions = {
+            // Row Data: The data to be displayed.
+            rowData: data,
+            // Column Definitions: Defines the columns to be displayed.
+            columnDefs: Object.keys(data[0]).map(k => { return {
+                field: k, filter: true, floatingFilter: true };
+            }),
+        };
+
+        // Your Javascript code to create the grid
+        const gridElement = document.querySelector('#choix');
+
+        agGrid.createGrid(gridElement, gridOptions);
+    </script>
+</body>
+
+</html>
